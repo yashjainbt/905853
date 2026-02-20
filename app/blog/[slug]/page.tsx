@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
+import type { PageProps } from 'next/types';
 import { notFound } from 'next/navigation';
 import { articleSchema, buildMetadata } from '@/lib/seo';
 import { getMdxEntryBySlug, getMdxEntries } from '@/lib/mdx';
 
 // Generate metadata for each blog post
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps<{ slug: string }>): Promise<Metadata> {
   const { slug } = params;
   const entry = await getMdxEntryBySlug('blog', slug);
 
@@ -25,12 +26,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 // Generate static params for all blog posts
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const entries = await getMdxEntries('blog'); // returns array of blog entries
+  const entries = await getMdxEntries('blog');
   return entries.map((entry) => ({ slug: entry.slug }));
 }
 
 // Single blog post page
-export default async function BlogDetailPage({ params }: { params: { slug: string } }) {
+export default async function BlogDetailPage({ params }: PageProps<{ slug: string }>) {
   const { slug } = params;
   const entry = await getMdxEntryBySlug('blog', slug);
 
