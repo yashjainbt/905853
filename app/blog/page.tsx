@@ -8,8 +8,8 @@ export const metadata = buildMetadata({
   path: '/blog'
 });
 
-export default function BlogPage(): JSX.Element {
-  const posts = getMdxEntries('blog');
+export default function BlogPage() {
+  const posts = await getMdxEntries('blog');
 
   return (
     <section className="section-spacing">
