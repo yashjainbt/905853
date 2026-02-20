@@ -1,15 +1,18 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { articleSchema, buildMetadata } from '@/lib/seo';
-import { getMdxEntries, getMdxEntryBySlug } from '@/lib/mdx';
+import { getMdxEntryBySlug } from '@/lib/mdx';
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  return getMdxEntries('blog').map((entry) => ({ slug: entry.slug }));
+  const entries = await getMdxEntryBySlug('blog'); // or getMdxEntries if listing
+  return entries.map((entry: any) => ({ slug: entry.slug }));
 }
 
+// generateMetadata expects params as Promise<{ slug: string }>
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const entry = await getMdxEntryBySlug('blog', slug);
+
   if (!entry) {
     return buildMetadata({ title: 'Post Not Found', description: 'Post unavailable', path: '/blog' });
   }
@@ -17,10 +20,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return buildMetadata({
     title: `${entry.frontmatter.title} | Yash Jain`,
     description: entry.frontmatter.description,
-    path: `/blog/${slug}`
+    path: `/blog/${slug}`,
   });
 }
 
+// Page receives params as Promise<{ slug: string }>
 export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const entry = await getMdxEntryBySlug('blog', slug);
@@ -50,7 +54,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
                 title: entry.frontmatter.title,
                 description: entry.frontmatter.description,
                 datePublished: entry.frontmatter.date,
-                path: `/blog/${slug}`
+                path: `/blog/${slug}`,
               })
             ),
           }}
