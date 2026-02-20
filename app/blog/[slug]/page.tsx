@@ -9,7 +9,7 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const { slug } = params;
-  const entry = getMdxEntryBySlug('blog', slug);
+  const entry = await getMdxEntryBySlug('blog', slug);
   if (!entry) {
     return buildMetadata({ title: 'Post Not Found', description: 'Post unavailable', path: '/blog' });
   }
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 export default async function BlogDetailPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
-  const entry = getMdxEntryBySlug('blog', slug);
+  const entry = await getMdxEntryBySlug('blog', slug);
 
   if (!entry) {
     notFound();
@@ -52,7 +52,7 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
                 datePublished: entry.frontmatter.date,
                 path: `/blog/${slug}`
               })
-            )
+            ),
           }}
         />
       </div>
