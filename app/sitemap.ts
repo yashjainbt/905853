@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { getMdxEntries } from '@/lib/utils';
+import { getMdxEntries } from '@/lib/mdx';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://yash-jain-portfolio.vercel.app';
