@@ -1,24 +1,17 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { articleSchema, buildMetadata } from '@/lib/seo';
-import { getMdxEntryBySlug, getMdxEntries } from '@/lib/mdx';
+import { getMdxEntries, getMdxEntryBySlug } from '@/lib/utils';
 
-//Type for page props
-type BlogPageProps = {
-  params: { slug: string };
-};
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
+  return getMdxEntries('blog').map((entry) => ({ slug: entry.slug }));
+}
 
-// Generate metadata for each blog post
-export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
-  const { slug } = params;
-  const entry = await getMdxEntryBySlug('blog', slug);
-
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const entry = getMdxEntryBySlug('blog', slug);
   if (!entry) {
-    return buildMetadata({
-      title: 'Post Not Found',
-      description: 'Post unavailable',
-      path: '/blog'
-    });
+    return buildMetadata({ title: 'Post Not Found', description: 'Post unavailable', path: '/blog' });
   }
 
   return buildMetadata({
@@ -28,16 +21,9 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
   });
 }
 
-// Generate static params for all blog posts
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const entries = await getMdxEntries('blog');
-  return entries.map((entry) => ({ slug: entry.slug }));
-}
-
-// Single blog post page
-export default async function BlogDetailPage({ params }: BlogPageProps) {
-  const { slug } = params;
-  const entry = await getMdxEntryBySlug('blog', slug);
+export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }): Promise<JSX.Element> {
+  const { slug } = await params;
+  const entry = getMdxEntryBySlug('blog', slug);
 
   if (!entry) {
     notFound();
