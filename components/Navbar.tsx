@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import ThemeToggle from '@/components/ThemeToggle';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/cn';
 
 const navItems = [
   { label: 'Home', href: '#home', key: 'home' },
