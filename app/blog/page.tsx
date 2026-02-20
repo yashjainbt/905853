@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
-import { getMdxEntries } from '@/lib/utils';
+import { getMdxEntries } from '@/lib/mdx';
 
 export const metadata = buildMetadata({
   title: 'Blog | Yash Jain',
