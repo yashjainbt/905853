@@ -7,8 +7,8 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return getMdxEntries('blog').map((entry) => ({ slug: entry.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const { slug } = params;
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
   const entry = await getMdxEntryBySlug('blog', slug);
   if (!entry) {
     return buildMetadata({ title: 'Post Not Found', description: 'Post unavailable', path: '/blog' });
@@ -21,8 +21,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   });
 }
 
-export default async function BlogDetailPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const entry = await getMdxEntryBySlug('blog', slug);
 
   if (!entry) {
