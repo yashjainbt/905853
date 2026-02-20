@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
+import type { ReactElement } from 'react';
 import { notFound } from 'next/navigation';
 import { articleSchema, buildMetadata } from '@/lib/seo';
-import { getMdxEntries, getMdxEntryBySlug } from '@/lib/utils';
+import { getMdxEntries, getMdxEntryBySlug } from '@/lib/mdx';
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return getMdxEntries('blog').map((entry) => ({ slug: entry.slug }));
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   });
 }
 
-export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }): Promise<ReactElement> {
   const { slug } = await params;
   const entry = getMdxEntryBySlug('blog', slug);
 

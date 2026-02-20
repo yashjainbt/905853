@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 const THEME_KEY = 'yash-portfolio-theme';
 
-export default function ThemeToggle() {
+export default function ThemeToggle(): JSX.Element {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {

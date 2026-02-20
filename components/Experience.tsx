@@ -1,7 +1,7 @@
 import { experience } from '@/content/experience';
 import Reveal from '@/components/ui/Reveal';
 
-export default function Experience() {
+export default function Experience(): JSX.Element {
   return (
     <section id="work" className="section-spacing">
       <div className="section-container">

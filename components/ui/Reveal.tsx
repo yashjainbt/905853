@@ -1,14 +1,14 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/cn';
 
 type RevealProps = {
   children: React.ReactNode;
   className?: string;
 };
 
-export default function Reveal({ children, className }: RevealProps) {
+export default function Reveal({ children, className }: RevealProps): JSX.Element {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {

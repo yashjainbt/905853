@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import ThemeToggle from '@/components/ThemeToggle';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/cn';
 
 const navItems = [
   { label: 'Home', href: '#home', key: 'home' },
@@ -13,7 +13,7 @@ const navItems = [
   { label: 'Contact', href: '#contact', key: 'contact' }
 ] as const;
 
-export default function Navbar({ showBlog }: { showBlog: boolean }) {
+export default function Navbar({ showBlog }: { showBlog: boolean }): JSX.Element {
   const [active, setActive] = useState('home');
   const [scrolled, setScrolled] = useState(false);
 

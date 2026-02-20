@@ -8,7 +8,7 @@ export const metadata = buildMetadata({
   path: '/projects'
 });
 
-export default function ProjectsPage() {
+export default function ProjectsPage(): JSX.Element {
   return (
     <section className="section-spacing">
       <div className="section-container">

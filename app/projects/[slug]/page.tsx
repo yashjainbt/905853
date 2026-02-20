@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getMdxEntryBySlug, getMdxEntries } from '@/lib/utils';
+import { getMdxEntryBySlug, getMdxEntries } from '@/lib/mdx';
 import { buildMetadata } from '@/lib/seo';
 
 const projectModules: Record<string, () => Promise<{ default: React.ComponentType }>> = {
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   });
 }
 
-export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }): Promise<JSX.Element> {
   const { slug } = await params;
   const entry = getMdxEntryBySlug('projects', slug);
 
