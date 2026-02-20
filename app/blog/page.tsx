@@ -8,7 +8,7 @@ export const metadata = buildMetadata({
   path: '/blog'
 });
 
-export default function BlogPage() {
+export default async function BlogPage() {
   const posts = await getMdxEntries('blog');
 
   return (
