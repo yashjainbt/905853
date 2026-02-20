@@ -3,30 +3,39 @@ import { notFound } from 'next/navigation';
 import { articleSchema, buildMetadata } from '@/lib/seo';
 import { getMdxEntryBySlug } from '@/lib/mdx';
 
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const entries = await getMdxEntryBySlug('blog'); // or getMdxEntries if listing
-  return entries.map((entry: any) => ({ slug: entry.slug }));
-}
+type BlogPageProps = {
+  params: { slug: string };
+};
 
-// generateMetadata expects params as Promise<{ slug: string }>
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params;
+// Generate metadata for each blog post
+export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
+  const { slug } = params;
   const entry = await getMdxEntryBySlug('blog', slug);
 
   if (!entry) {
-    return buildMetadata({ title: 'Post Not Found', description: 'Post unavailable', path: '/blog' });
+    return buildMetadata({
+      title: 'Post Not Found',
+      description: 'Post unavailable',
+      path: '/blog'
+    });
   }
 
   return buildMetadata({
     title: `${entry.frontmatter.title} | Yash Jain`,
     description: entry.frontmatter.description,
-    path: `/blog/${slug}`,
+    path: `/blog/${slug}`
   });
 }
 
-// Page receives params as Promise<{ slug: string }>
-export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+// Generate static params for all blog posts
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
+  const entries = await import('@/lib/mdx').then((mod) => mod.getMdxEntries('blog'));
+  return entries.map((entry) => ({ slug: entry.slug }));
+}
+
+// Single blog post page
+export default async function BlogDetailPage({ params }: BlogPageProps) {
+  const { slug } = params;
   const entry = await getMdxEntryBySlug('blog', slug);
 
   if (!entry) {
@@ -46,6 +55,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
         <div className="blog-prose mt-10">
           <PostComponent />
         </div>
+
+        {/* Structured data for SEO */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -54,9 +65,9 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
                 title: entry.frontmatter.title,
                 description: entry.frontmatter.description,
                 datePublished: entry.frontmatter.date,
-                path: `/blog/${slug}`,
+                path: `/blog/${slug}`
               })
-            ),
+            )
           }}
         />
       </div>
