@@ -9,7 +9,7 @@ type BlogPageProps = {
 };
 
 // Generate metadata for each blog post
-export default async function BlogDetailPage({ params }: BlogPageProps) {
+export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
   const { slug } = params;
   const entry = await getMdxEntryBySlug('blog', slug);
 
