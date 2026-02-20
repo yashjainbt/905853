@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
-import { getMdxEntries } from '@/lib/mdx';
+import { getMdxEntries } from '@/lib/utils';
 
 export const metadata = buildMetadata({
   title: 'Blog | Yash Jain',
@@ -8,8 +8,8 @@ export const metadata = buildMetadata({
   path: '/blog'
 });
 
-export default async function BlogPage() {
-  const posts = await getMdxEntries('blog');
+export default function BlogPage(): JSX.Element {
+  const posts = getMdxEntries('blog');
 
   return (
     <section className="section-spacing">
