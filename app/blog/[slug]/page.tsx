@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
-import type { PageProps } from 'next/types';
 import { notFound } from 'next/navigation';
 import { articleSchema, buildMetadata } from '@/lib/seo';
 import { getMdxEntryBySlug, getMdxEntries } from '@/lib/mdx';
 
+//Type for page props
+type BlogPageProps = {
+  params: { slug: string };
+};
+
 // Generate metadata for each blog post
-export async function generateMetadata({ params }: PageProps<{ slug: string }>): Promise<Metadata> {
+export default async function BlogDetailPage({ params }: BlogPageProps) {
   const { slug } = params;
   const entry = await getMdxEntryBySlug('blog', slug);
 
@@ -31,7 +35,7 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 }
 
 // Single blog post page
-export default async function BlogDetailPage({ params }: PageProps<{ slug: string }>) {
+export default async function BlogDetailPage({ params }: BlogPageProps) {
   const { slug } = params;
   const entry = await getMdxEntryBySlug('blog', slug);
 
