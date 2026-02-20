@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
-import { getMdxEntries } from '@/lib/utils';
+import { getMdxEntries } from '@/lib/mdx';
 
 export const metadata = buildMetadata({
   title: 'Blog | Yash Jain',
@@ -8,7 +8,7 @@ export const metadata = buildMetadata({
   path: '/blog'
 });
 
-export default function BlogPage(): React.ReactElement {
+export default function BlogPage(): JSX.Element {
   const posts = getMdxEntries('blog');
 
   return (

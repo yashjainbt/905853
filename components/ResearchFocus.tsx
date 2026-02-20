@@ -1,7 +1,7 @@
 import { researchAreas, researchIntro } from '@/content/research';
 import Reveal from '@/components/ui/Reveal';
 
-export default function ResearchFocus(): React.ReactElement {
+export default function ResearchFocus(): JSX.Element {
   return (
     <section className="section-spacing bg-base-alt">
       <div className="section-container">

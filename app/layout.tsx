@@ -5,7 +5,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { buildMetadata, personSchema, siteConfig } from '@/lib/seo';
-import { getMdxEntries } from '@/lib/utils';
+import { getMdxEntries } from '@/lib/mdx';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const poppins = Poppins({ subsets: ['latin'], weight: ['600', '700'], variable: '--font-poppins' });
@@ -16,7 +16,7 @@ export const metadata: Metadata = buildMetadata({
   description: siteConfig.description
 });
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>): React.ReactElement {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>): JSX.Element {
   const showBlog = getMdxEntries('blog').length >= 3;
 
   return (

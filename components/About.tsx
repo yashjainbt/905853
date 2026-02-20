@@ -1,7 +1,7 @@
 import { aboutContent } from '@/content/about';
 import Reveal from '@/components/ui/Reveal';
 
-export default function About(): React.ReactElement {
+export default function About(): JSX.Element {
   return (
     <section id="about" className="section-spacing bg-base-alt">
       <div className="section-container">

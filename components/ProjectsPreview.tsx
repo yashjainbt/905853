@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { projectConfig } from '@/lib/projects.config';
 import Reveal from '@/components/ui/Reveal';
 
-export default function ProjectsPreview(): React.ReactElement {
+export default function ProjectsPreview(): JSX.Element {
   const featured = projectConfig.filter((project) => project.featured);
 
   return (
