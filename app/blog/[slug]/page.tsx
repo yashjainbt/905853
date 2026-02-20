@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { articleSchema, buildMetadata } from '@/lib/seo';
-import { getMdxEntries, getMdxEntryBySlug } from '@/lib/mdx';
-
-// No custom type needed — Next.js will infer PageProps automatically
+import { getMdxEntryBySlug, getMdxEntries } from '@/lib/mdx';
 
 // Generate metadata for each blog post
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
@@ -27,7 +25,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 // Generate static params for all blog posts
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const entries = await getMdxEntries('blog');
+  const entries = await getMdxEntries('blog'); // returns array of blog entries
   return entries.map((entry) => ({ slug: entry.slug }));
 }
 
@@ -53,7 +51,6 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
         <div className="blog-prose mt-10">
           <PostComponent />
         </div>
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
