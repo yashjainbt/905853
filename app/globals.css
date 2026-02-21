@@ -40,4 +40,4 @@ body {
 
 .blog-prose {
   @apply prose prose-slate dark:prose-invert max-w-none font-serif;
-} 
+}
