@@ -9,7 +9,7 @@ import Contact from '@/components/Contact';
 import { publications } from '@/content/publications';
 import { scholarlyArticleSchema } from '@/lib/seo';
 
-export default function HomePage(): JSX.Element {
+export default function HomePage(): React.ReactElement {
   const showPublications = publications.length > 1;
 
   return (
