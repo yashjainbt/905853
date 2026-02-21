@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { contactContent } from '@/content/contact';
 import Reveal from '@/components/ui/Reveal';
 
-export default function Contact(): JSX.Element {
+export default function Contact(): React.ReactElement {
   return (
     <section id="contact" className="section-spacing bg-base-alt">
       <div className="section-container">
