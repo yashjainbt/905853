@@ -5,7 +5,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { buildMetadata, personSchema, siteConfig } from '@/lib/seo';
-import { getMdxEntries } from '@/lib/utils';
+import { getMdxEntries } from '@/lib/mdx';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const poppins = Poppins({ subsets: ['latin'], weight: ['600', '700'], variable: '--font-poppins' });
