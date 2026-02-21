@@ -1,7 +1,7 @@
 import { certifications } from '@/content/certifications';
 import Reveal from '@/components/ui/Reveal';
 
-export default function Certifications(): JSX.Element {
+export default function Certifications(): React.ReactElement {
   return (
     <section className="section-spacing">
       <div className="section-container">
