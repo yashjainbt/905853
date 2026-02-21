@@ -1,7 +1,7 @@
 import { experience } from '@/content/experience';
 import Reveal from '@/components/ui/Reveal';
 
-export default function Experience(): JSX.Element {
+export default function Experience(): React.ReactElement {
   return (
     <section id="work" className="section-spacing">
       <div className="section-container">
