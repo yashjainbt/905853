@@ -8,7 +8,7 @@ export const metadata = buildMetadata({
   path: '/blog'
 });
 
-export default function BlogPage(): JSX.Element {
+export default function BlogPage(): React.ReactElement {
   const posts = getMdxEntries('blog');
 
   return (
