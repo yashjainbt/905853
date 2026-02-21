@@ -1,4 +1,4 @@
-export default function Footer(): JSX.Element {
+export default function Footer(): React.ReactElement {
   return (
     <footer className="border-t border-base-border py-8">
       <div className="section-container space-y-1 text-sm text-base-muted">
