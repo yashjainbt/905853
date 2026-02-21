@@ -13,7 +13,7 @@ const navItems = [
   { label: 'Contact', href: '#contact', key: 'contact' }
 ] as const;
 
-export default function Navbar({ showBlog }: { showBlog: boolean }): JSX.Element {
+export default function Navbar({ showBlog }: { showBlog: boolean }): React.ReactElement {
   const [active, setActive] = useState('home');
   const [scrolled, setScrolled] = useState(false);
 
