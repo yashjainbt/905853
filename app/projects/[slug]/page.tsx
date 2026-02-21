@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   });
 }
 
-export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }): Promise<JSX.Element> {
+export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }): Promise<React.ReactElement> {
   const { slug } = await params;
   const entry = getMdxEntryBySlug('projects', slug);
 
