@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { heroContent } from '@/content/hero';
 import Reveal from '@/components/ui/Reveal';
 
-export default function Hero(): JSX.Element {
+export default function Hero(): React.ReactElement {
   return (
     <section id="home" className="section-spacing border-b border-base-border">
       <div className="section-container grid items-center gap-10 lg:grid-cols-12">
