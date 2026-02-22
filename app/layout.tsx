@@ -16,7 +16,7 @@ export const metadata: Metadata = buildMetadata({
   description: siteConfig.description
 });
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>): React.ReactElement {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const showBlog = getMdxEntries('blog').length >= 3;
 
   return (
