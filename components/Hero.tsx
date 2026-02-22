@@ -8,7 +8,7 @@ export default function Hero() {
     <section id="home" className="section-spacing border-b border-base-border">
       <div className="section-container grid items-center gap-10 lg:grid-cols-12">
         <Reveal className="lg:col-span-8">
-          <p className="mb-3 text-sm font-medium text-brand-accent">{heroContent.name}</p>
+          <p className="mb-3 text-xl font-medium text-brand-accent">{heroContent.name}</p>
           <h1 className="font-heading text-3xl font-bold leading-tight text-base-text md:text-4xl">
             {heroContent.primaryLine}
           </h1>
