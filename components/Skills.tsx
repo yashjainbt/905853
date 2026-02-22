@@ -3,7 +3,7 @@ import Reveal from '@/components/ui/Reveal';
 
 export default function Skills() {
   return (
-    <section className="section-spacing bg-base-alt">
+    <section id="skills" className="section-spacing bg-base-alt">
       <div className="section-container">
         <Reveal>
           <h2 className="font-heading text-2xl font-semibold">Skills</h2>
