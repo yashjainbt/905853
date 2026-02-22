@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://yash-jain-portfolio.vercel.app';
   const projectRoutes = getMdxEntries('projects').map((entry) => ({
     url: `${base}/projects/${entry.slug}`,
-    lastModified: new Date(entry.frontmatter.date)
+    
   }));
   const blogRoutes = getMdxEntries('blog').map((entry) => ({
     url: `${base}/blog/${entry.slug}`,
