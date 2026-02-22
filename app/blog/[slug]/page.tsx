@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import type { ReactElement } from 'react';
 import { notFound } from 'next/navigation';
+import { compileMDX } from 'next-mdx-remote/rsc';
 import { articleSchema, buildMetadata } from '@/lib/seo';
 import { getMdxEntries, getMdxEntryBySlug } from '@/lib/mdx';
 
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   });
 }
 
-export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }): Promise<ReactElement> {
+export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const entry = getMdxEntryBySlug('blog', slug);
 
@@ -30,7 +30,9 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
     notFound();
   }
 
-  const PostComponent = (await import(`@/content/blog/${slug}.mdx`)).default;
+  const { content } = await compileMDX({
+    source: entry.content
+  });
 
   return (
     <article className="section-spacing">
@@ -40,9 +42,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
         </p>
         <h1 className="mt-2 font-heading text-3xl font-bold">{entry.frontmatter.title}</h1>
         <p className="mt-4 text-base text-base-muted">{entry.frontmatter.description}</p>
-        <div className="blog-prose mt-10">
-          <PostComponent />
-        </div>
+        <div className="blog-prose mt-10">{content}</div>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
