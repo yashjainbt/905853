@@ -4,7 +4,7 @@ export const heroContent = {
   supportingLine:
     'Integrating experimental oncology with regulatory science and translational systems.',
   microStatement:
-    'Focused on building scientifically rigorous and compliant biomedical solutions.',
+    'Early-career biotechnology researcher combining experimental biology, quality systems, and translational thinking to build impactful and compliant biomedical solutions.',
   primaryCTA: 'View Projects',
   secondaryCTA: 'Download Resume'
 };
