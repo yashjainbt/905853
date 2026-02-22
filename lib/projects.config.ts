@@ -23,7 +23,7 @@ export const projectConfig: ProjectMeta[] = [
     category: 'Research Fellowship',
     shortDescription:
       'Development of targeted delivery systems using Affimer proteins for enhanced therapeutic efficacy in drug-resistant triple-negative breast cancer. Designed experimental workflows, performed preclinical planning, and gained hands-on experience in in vitro and in vivo translational research.',
-    tags: ['Affimer', 'Experimental Therapeutics', 'Cancer Biology', 'Evaluation Frameworks'],
+    tags: ['Animal Handling', 'Lab Management', 'Experimental Design', 'Statistical Planning', 'Protocol Standardization'],
     featured: true
   }
 ];
