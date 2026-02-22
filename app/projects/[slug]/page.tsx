@@ -1,12 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { compileMDX } from 'next-mdx-remote/rsc';
 import { getMdxEntryBySlug, getMdxEntries } from '@/lib/mdx';
 import { buildMetadata } from '@/lib/seo';
-
-const projectModules: Record<string, () => Promise<{ default: React.ComponentType }>> = {
-  'btech-thesis': () => import('@/content/projects/btech-thesis.mdx'),
-  'jrf-affimer-project': () => import('@/content/projects/jrf-affimer-project.mdx')
-};
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return getMdxEntries('projects').map((entry) => ({ slug: entry.slug }));
@@ -26,15 +22,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   });
 }
 
-export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }): Promise<React.ReactElement> {
+export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const entry = getMdxEntryBySlug('projects', slug);
 
-  if (!entry || !projectModules[slug]) {
+  if (!entry) {
     notFound();
   }
 
-  const ProjectContent = (await projectModules[slug]()).default;
+  const { content } = await compileMDX({
+    source: entry.content
+  });
 
   return (
     <article className="section-spacing">
@@ -44,9 +42,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         </p>
         <h1 className="mt-2 font-heading text-3xl font-bold">{entry.frontmatter.title}</h1>
         <p className="mt-4 text-base text-base-muted">{entry.frontmatter.description}</p>
-        <div className="blog-prose mt-10 font-body not-prose:[font-family:var(--font-inter)]">
-          <ProjectContent />
-        </div>
+        <div className="blog-prose mt-10 font-body not-prose:[font-family:var(--font-inter)]">{content}</div>
       </div>
     </article>
   );
