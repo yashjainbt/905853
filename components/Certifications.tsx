@@ -3,7 +3,7 @@ import Reveal from '@/components/ui/Reveal';
 
 export default function Certifications() {
   return (
-    <section className="section-spacing">
+    <section id="certifications" className="section-spacing">
       <div className="section-container">
         <Reveal>
           <h2 className="font-heading text-2xl font-semibold">Certifications</h2>
