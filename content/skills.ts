@@ -13,25 +13,41 @@ export const skills = [
     ]
   },
   {
-    category: 'Research & Analytical Practice',
+    category: 'Characterization & Instrumentation',
     items: [
-      'Protocol Optimization',
-      'Experimental Design',
-      'Systematic Data Interpretation',
-      'Scientific Documentation'
+      'Spectrophotometry',
+      'Microscopy',
+      'Analytical Assays'
     ]
   },
   {
-    category: 'Computational & Technical Tools',
-    items: ['R Programming', 'AI-assisted Workflows', 'Microsoft Excel', 'Scientific Writing']
+    category: 'Data Analysis & Computational Tools',
+    items: [
+      'R Language',
+      'GraphPad Prism',
+      'AI-Assisted Workflows',
+      'Statistical Analysis',
+      'Graphing and Visualization',
+      'MS Office'
+    ]
   },
   {
-    category: 'Regulatory & Quality Orientation',
+    category: 'Regulatory & Quality Systems',
     items: [
-      'Regulatory Framework Awareness',
-      'Documentation Standards',
-      'Quality-Oriented Thinking',
-      'Translational Systems Perspective'
+      'ISO 13485 Documentation',
+      'EU MDR Compliance',
+      'Clinical Evaluation & Post-Market Surveillance',
+      'Supplier Management',
+      'Management & Organization Skills'
+    ]
+  },  
+  {
+    category: 'Research Workflow & Documentation',
+    items: [
+      'Protocol Development & Optimization',
+      'Literature Review & Analysis',
+      'Experimental Design',
+      'Scientific Reporting & Presentation'
     ]
   }
 ] as const;
