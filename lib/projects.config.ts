@@ -9,20 +9,20 @@ export type ProjectMeta = {
 
 export const projectConfig: ProjectMeta[] = [
   {
-    title: 'B.Tech Thesis: Targeted Therapeutic Systems',
+    title: 'B.Tech Thesis: Cytotoxicity Assessment of Lead Acetate and Cobalt Nitrate on MDA-MB-231 Cell Line using MTT assay',
     slug: 'btech-thesis',
     category: 'Academic Research',
     shortDescription:
-      'Preclinical investigation of targeted therapeutic strategies using experimentally optimized in vitro and in vivo workflows.',
-    tags: ['Oncology', 'Drug Delivery', 'Preclinical Models', 'Translational Research'],
+      'Evaluation of heavy-metal-induced cytotoxicity on triple-negative breast cancer cells using MTT assay. Developed experimental protocols, performed cell culture maintenance, and analyzed dose-dependent toxicity, establishing a foundation in in vitro experimental design and translational analysis.',
+    tags: ['Cell Culture', 'MTT Assay', 'Data Analysis', 'Experimental Design', 'Regulatory'],
     featured: true
   },
   {
-    title: 'JRF Affimer Project',
+    title: 'EGFR-targeted Affimer recombinant proteins for targeted delivery of siRNA/drug-loaded cubosomes to enhance treatment efficacy for drug-resistant triple-negative breast cancer.',
     slug: 'jrf-affimer-project',
     category: 'Research Fellowship',
     shortDescription:
-      'Affimer-oriented experimental research integrating therapeutic mechanism exploration with structured evaluation pipelines.',
+      'Development of targeted delivery systems using Affimer proteins for enhanced therapeutic efficacy in drug-resistant triple-negative breast cancer. Designed experimental workflows, performed preclinical planning, and gained hands-on experience in in vitro and in vivo translational research.',
     tags: ['Affimer', 'Experimental Therapeutics', 'Cancer Biology', 'Evaluation Frameworks'],
     featured: true
   }
