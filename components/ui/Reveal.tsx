@@ -8,7 +8,7 @@ type RevealProps = {
   className?: string;
 };
 
-export default function Reveal({ children, className }: RevealProps): React.ReactElement {
+export default function Reveal({ children, className }: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
