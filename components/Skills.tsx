@@ -1,7 +1,7 @@
 import { skills } from '@/content/skills';
 import Reveal from '@/components/ui/Reveal';
 
-export default function Skills(): React.ReactElement {
+export default function Skills() {
   return (
     <section className="section-spacing bg-base-alt">
       <div className="section-container">
