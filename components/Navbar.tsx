@@ -53,7 +53,7 @@ export default function Navbar({ showBlog }: { showBlog: boolean }) {
       )}
     >
       <nav className="section-container flex h-16 items-center justify-between" aria-label="Primary navigation">
-        <Link href="/" className="font-heading text-sm font-semibold text-base-text">
+        <Link href="/" className="font-heading text-x font-semibold text-base-text">
           Yash Jain
         </Link>
         <ul className="hidden items-center gap-6 md:flex">
