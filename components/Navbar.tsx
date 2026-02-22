@@ -8,8 +8,11 @@ import { cn } from '@/lib/cn';
 const navItems = [
   { label: 'Home', href: '/#home', key: 'home' },
   { label: 'About', href: '/#about', key: 'about' },
-  { label: 'Work', href: '/#work', key: 'work' },
+  { label: 'Experience', href: '/#experience', key: 'experience' },
+  { label: 'Research & Technical Focus', href: '/#research', key: 'research' },
   { label: 'Projects', href: '/projects', key: 'projects' },
+  { label: 'Skills', href: '/#skills', key: 'skills' },
+  { label: 'Certifications', href: '/#certifications', key: 'certifications' },
   { label: 'Contact', href: '/#contact', key: 'contact' }
 ] as const;
 
