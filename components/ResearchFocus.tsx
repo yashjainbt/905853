@@ -3,7 +3,7 @@ import Reveal from '@/components/ui/Reveal';
 
 export default function ResearchFocus() {
   return (
-    <section className="section-spacing bg-base-alt">
+    <section id="research" className="section-spacing bg-base-alt">
       <div className="section-container">
         <Reveal>
           <h2 className="font-heading text-2xl font-semibold">Research & Technical Focus</h2>
