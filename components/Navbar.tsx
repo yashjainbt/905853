@@ -6,11 +6,11 @@ import ThemeToggle from '@/components/ThemeToggle';
 import { cn } from '@/lib/cn';
 
 const navItems = [
-  { label: 'Home', href: '#home', key: 'home' },
-  { label: 'About', href: '#about', key: 'about' },
-  { label: 'Work', href: '#work', key: 'work' },
+  { label: 'Home', href: '/#home', key: 'home' },
+  { label: 'About', href: '/#about', key: 'about' },
+  { label: 'Work', href: '/#work', key: 'work' },
   { label: 'Projects', href: '/projects', key: 'projects' },
-  { label: 'Contact', href: '#contact', key: 'contact' }
+  { label: 'Contact', href: '/#contact', key: 'contact' }
 ] as const;
 
 export default function Navbar({ showBlog }: { showBlog: boolean }) {
