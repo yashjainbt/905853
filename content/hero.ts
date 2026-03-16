@@ -1,6 +1,7 @@
 export const heroContent = {
   name: 'Yash Jain',
-  primaryLine: 'Biotechnology Researcher |\n Medical Device Quality & Regulatory Specialist',
+  primaryLine: 'Biotechnology Researcher | 
+    Medical Device Quality & Regulatory Specialist',
   supportingLine:
     'Integrating experimental oncology with regulatory science and translational systems.',
   microStatement:
