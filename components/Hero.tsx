@@ -33,7 +33,7 @@ export default function Hero() {
           <div className="card-surface overflow-hidden p-6">
             <div className="relative aspect-[16/11] w-full">
               <Image
-                src="/assets/images/biomed-motif.svg"
+                src="/assets/images/animation.gif"
                 alt="Abstract biomedical network motif"
                 fill
                 sizes="(max-width: 1024px) 100vw, 320px"
