@@ -34,7 +34,7 @@ export default function Hero() {
             <div className="relative aspect-[16/11] w-full">
               <Image
                 src="/assets/images/animation.gif"
-                alt="Abstract biomedical network motif"
+                alt="Abstract illustration"
                 fill
                 sizes="(max-width: 1024px) 100vw, 320px"
                 className="object-contain"
