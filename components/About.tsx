@@ -8,9 +8,9 @@ export default function About() {
         <Reveal>
           <h2 className="font-heading text-2xl font-semibold">About</h2>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-base-muted">
-            <p>{aboutContent.paragraph1}</p>
-            <p>{aboutContent.paragraph2}</p>
-            <p>{aboutContent.paragraph3}</p>
+            <p className="text-justify">{aboutContent.paragraph1}</p>
+            <p className="text-justify">{aboutContent.paragraph2}</p>
+            <p className="text-justify">{aboutContent.paragraph3}</p>
           </div>
         </Reveal>
       </div>
