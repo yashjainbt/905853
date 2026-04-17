@@ -9,11 +9,11 @@ export default function Hero() {
       <div className="section-container grid items-center gap-10 lg:grid-cols-12">
         <Reveal className="lg:col-span-8">
           <p className="mb-3 text-2xl font-medium text-brand-accent">{heroContent.name}</p>
-          <h1 className="font-heading text-3xl font-bold leading-tight text-base-text md:text-3xl">
+          <h1 className="font-heading text-3xl font-bold leading-tight text-base-text md:text-3xl text-justify">
             {heroContent.primaryLine}
           </h1>
-          <p className="mt-5 max-w-3xl text-lg text-base-muted">{heroContent.supportingLine}</p>
-          <p className="mt-4 text-base text-base-muted">{heroContent.microStatement}</p>
+          <p className="mt-5 max-w-3xl text-lg text-base-muted text-justify">{heroContent.supportingLine}</p>
+          <p className="mt-4 text-base text-base-muted text-justify">{heroContent.microStatement}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="#projects-preview"
