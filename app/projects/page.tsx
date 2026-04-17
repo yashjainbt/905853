@@ -21,7 +21,7 @@ export default function ProjectsPage() {
             >
               <p className="text-sm text-brand-accent">{project.category}</p>
               <h2 className="mt-2 font-heading text-xl font-semibold">{project.title}</h2>
-              <p className="mt-3 text-base text-base-muted">{project.shortDescription}</p>
+              <p className="mt-3 text-base text-base-muted text-justify">{project.shortDescription}</p>
               <Link href={`/projects/${project.slug}`} className="mt-5 inline-block text-sm text-brand-accent">
                 Read case study →
               </Link>
