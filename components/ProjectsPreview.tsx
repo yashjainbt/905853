@@ -22,7 +22,7 @@ export default function ProjectsPreview() {
                 className="card-surface p-6 transition-smooth duration-300 ease-out hover:-translate-y-1 hover:shadow-subtleHover"
               >
                 <p className="text-sm text-brand-accent">{project.category}</p>
-                <h3 className="mt-2 font-heading text-xl font-semibold">{project.title}</h3>
+                <h3 className="mt-2 font-heading text-xl font-semibold text-justify">{project.title}</h3>
                 <p className="mt-3 text-base text-base-muted text-justify">{project.shortDescription}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
